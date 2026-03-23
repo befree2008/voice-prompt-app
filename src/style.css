@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义动画 */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.recording-pulse {
+  animation: pulse-ring 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* 语音波形动画 */
+@keyframes wave {
+  0%, 100% { height: 8px; }
+  50% { height: 24px; }
+}
+
+.voice-wave span {
+  display: inline-block;
+  width: 4px;
+  margin: 0 2px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: wave 0.6s ease-in-out infinite;
+}
+
+.voice-wave span:nth-child(2) { animation-delay: 0.1s; }
+.voice-wave span:nth-child(3) { animation-delay: 0.2s; }
+.voice-wave span:nth-child(4) { animation-delay: 0.3s; }
+.voice-wave span:nth-child(5) { animation-delay: 0.4s; }
+
+/* Markdown 样式 */
+.prompt-content h1,
+.prompt-content h2,
+.prompt-content h3 {
+  @apply font-bold mt-4 mb-2;
+}
+.prompt-content h1 { @apply text-xl; }
+.prompt-content h2 { @apply text-lg text-indigo-600; }
+.prompt-content h3 { @apply text-base; }
+.prompt-content p { @apply my-2; }
+.prompt-content ul, .prompt-content ol { @apply my-2 pl-6; }
+.prompt-content ul { @apply list-disc; }
+.prompt-content ol { @apply list-decimal; }
+.prompt-content li { @apply my-1; }
+.prompt-content code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono; }
+.prompt-content pre { @apply bg-gray-100 p-3 rounded-lg overflow-x-auto my-3; }
+.prompt-content pre code { @apply bg-transparent p-0; }
